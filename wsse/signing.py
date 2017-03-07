@@ -135,7 +135,6 @@ def sign(envelope, keyfile, certfile):
     ctx = xmlsec.SignatureContext()
     ctx.key = key
     _sign_node(ctx, signature, doc.find(ns(SOAP_NS, 'Body')))
-    _sign_node(ctx, signature, security.find(ns(WSU_NS, 'Timestamp')))
     ctx.sign(signature)
 
     # Place the X509 data inside a WSSE SecurityTokenReference within
